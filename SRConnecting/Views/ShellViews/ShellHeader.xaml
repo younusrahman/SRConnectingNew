@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SRConnecting.Views.ShellViews.ShellHeader"
+             xmlns:viewmodel="clr-namespace:SRConnecting.ViewModels"
+             BackgroundColor="Transparent"
+            
+             WidthRequest="240">
+
+    <ContentView.BindingContext>
+        <viewmodel:LoginViewModel/>
+    </ContentView.BindingContext>
+
+    <Grid VerticalOptions="Center" HorizontalOptions="StartAndExpand" HeightRequest="150">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Frame Grid.Column="0" 
+               Margin="0,0,0,0"
+               BackgroundColor="Transparent"
+               CornerRadius="100" 
+               HeightRequest="100"
+               WidthRequest="120"
+               IsClippedToBounds="True">
+                <Image Source="Profile2.png" />
+        </Frame>
+        
+        <Grid Grid.Column="1"  WidthRequest="180">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Label FontAttributes="Bold" FontSize="Medium" Text="{Binding UserFullName}" VerticalOptions="EndAndExpand" TextColor="White"/>
+            <Label Grid.Row="1" Text="{Binding UserEmail}" FontSize="Small" FontAttributes="Bold" TextColor="White"/>
+        </Grid>
+    </Grid>
+
+
+
+</ContentView>

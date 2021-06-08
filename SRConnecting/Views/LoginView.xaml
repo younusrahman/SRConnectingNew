@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"            
+             x:Class="SRConnecting.Views.LoginView"
+             xmlns:local="clr-namespace:SRConnecting.Common.EmbeddedImage"
+             xmlns:toolkit="http://xamarin.com/schemas/2020/toolkit"
+             xmlns:ViewModels="clr-namespace:SRConnecting.ViewModels"
+             BackgroundColor="#C1C4FE"
+             Visual="Material">
+    <ContentPage.BindingContext>
+        <ViewModels:LoginViewModel/> 
+    </ContentPage.BindingContext>
+    <!--BackgroundImageSource="{local:EmbeddedImages SRConnecting.images.BG.jpg}">-->
+    <StackLayout  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+
+        <Grid>
+            <StackLayout Padding="0" Margin="40,60,0,0" HorizontalOptions="Start" WidthRequest="200">
+                <Frame HeightRequest="60" BackgroundColor="Purple" Padding="0" CornerRadius="8">
+                    <Label Text="SIGN IN" TextColor="White" Padding="0,8,0,0" HorizontalOptions="CenterAndExpand" FontAttributes="Bold"/>
+                </Frame>
+            </StackLayout>
+            <StackLayout Padding="0" Margin="0,100,0,-20" HorizontalOptions="FillAndExpand">
+                <Frame  BackgroundColor="White" HeightRequest="600" HasShadow="True" CornerRadius="30">
+
+                    <StackLayout>
+
+                        
+
+                        <!--här visar useremail chéck-->
+                        <Label  IsVisible="{Binding EmailErrorMsg}" Text="Invali Email Address" HorizontalOptions="CenterAndExpand" TextColor="#530E0E" FontAttributes="Bold" FontSize="Small"/>
+
+
+                        <StackLayout Padding="0" Margin="15,40,15,0">
+
+                            <Frame BorderColor="DarkGray" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="30">
+                                <StackLayout Orientation="Horizontal" BackgroundColor="Transparent"> 
+                                    <Frame  WidthRequest="55" CornerRadius="30" Padding="0" Margin="5">
+                                        <Image Source="https://www.findool.com/images/avatars/avatar.png" Aspect="AspectFill" Margin="0"/>
+                                    </Frame>
+
+                                    <Entry x:Name="Entry_email" 
+                                           Text="{Binding  UserEmail}" 
+                                           BackgroundColor="Transparent" 
+                                           Placeholder="Email" 
+                                           TextColor="#004357" 
+                                           FontAttributes="None" 
+                                           HorizontalOptions="FillAndExpand" 
+                                           Margin="0,0,20,0">
+
+                                        <Entry.Behaviors>
+                                            <toolkit:EventToCommandBehavior  EventName="Unfocused"
+                                                                             Command="{Binding EmailEntryUnfocused}" />
+                                        </Entry.Behaviors>
+                                    </Entry>
+
+                                </StackLayout>
+
+                            </Frame>
+
+
+                            <Frame Margin="0,15,0,0" Padding="0"  BorderColor="DarkGray" HorizontalOptions="FillAndExpand" CornerRadius="30">
+                                <StackLayout Orientation="Horizontal">
+                                    <Frame WidthRequest="55" CornerRadius="30" Padding="0" Margin="5">
+                                        <Image Source="https://images.all-free-download.com/images/graphicthumb/lock_icon_6813906.jpg" Aspect="AspectFill" Margin="0"/>
+                                    </Frame>
+
+                                    <Entry  Text="{Binding UserPassword}" 
+                                            BackgroundColor="Transparent"
+                                            IsEnabled="{Binding PaswordEntryIsEnable}"
+                                            Placeholder="Password" 
+                                            IsPassword="True" 
+                                            TextColor="#004357" 
+                                            FontAttributes="None" 
+                                            HorizontalOptions="FillAndExpand" 
+                                            Margin="0,0,20,0"
+                                            />
+
+
+
+
+
+
+
+                                    <!--<local:CustomEntry Placeholder="Password" IsPassword="True" TextColor="#004357" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>-->
+                                </StackLayout>
+                            </Frame>
+
+                            <StackLayout  Orientation="Horizontal">
+                                <Switch   IsToggled="{Binding  RememberPassEmail}" />
+                                <Label Text="Remember me" TextColor="Black" FontSize="Small" FontAttributes="Bold" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" />
+
+                                <Button Text="Forgot Password" BackgroundColor="Transparent" Visual="Default" TextColor="#004357" FontAttributes="Bold" BorderColor="Aqua" HorizontalOptions="EndAndExpand" FontSize="Small" Command="{Binding AccountRecoveryCommand}" />
+
+
+                            </StackLayout>
+                            <StackLayout Visual="Default" Orientation="Horizontal">
+                                <Button Text="Register Today" Visual="Default" VerticalOptions="EndAndExpand" WidthRequest="160" BackgroundColor="#5C221C" TextColor="White" CornerRadius="30" Command="{Binding SignUpCommand}"/>
+                                <Button Text="SIGN IN" Visual="Default" BackgroundColor="#004357" WidthRequest="160" TextColor="White" CornerRadius="30"  Command="{Binding LoginCommand}" />
+
+                            </StackLayout>
+
+                            
+                            <!--<StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                                <Image Source="register1.png"/>
+         
+                                <Button Text="Sign Up" TextColor="#004357" BackgroundColor="Transparent" FontAttributes="Bold" FontSize="Small" Command="{Binding SignUpCommand}"/>
+                            </StackLayout>-->
+
+                            <StackLayout Margin="0,10,0,0" Padding="0">
+                                <Grid>
+                                    <BoxView BackgroundColor="DarkGray" HeightRequest="1" WidthRequest="150"  HorizontalOptions="Center" VerticalOptions="Center"/>
+                                    <Frame BackgroundColor="White" HeightRequest="35" WidthRequest="45" CornerRadius="45" HasShadow="False" BorderColor="DarkGray" Margin="0" HorizontalOptions="Center" Padding="0">
+                                        <Label Text="OR" TextColor="DarkGray" FontSize="Small" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                                    </Frame>
+                                </Grid>
+                            </StackLayout>
+
+                            <StackLayout Visual="Default"  Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                                <Frame BackgroundColor="White" HeightRequest="45" WidthRequest="45" CornerRadius="45" HasShadow="False" BorderColor="DarkGray" Margin="0" HorizontalOptions="Center" Padding="0">
+                                    <Image Source="https://blog.hubspot.com/hubfs/image8-2.jpg" Aspect="AspectFill" Margin="0"/>
+                                </Frame>
+                                <Frame BackgroundColor="White" HeightRequest="45" WidthRequest="45" CornerRadius="45" HasShadow="False" BorderColor="DarkGray" Margin="0" HorizontalOptions="Center" Padding="0">
+                                    <ImageButton Source="https://blog.hubspot.com/hubfs/image8-2.jpg" Aspect="AspectFill" Margin="0" Command="{Binding  GoogleLoginommand}"/>
+                                </Frame>
+                            </StackLayout>
+
+                            <!--här visar Login_ActivityIndicator-->
+                            <StackLayout x:Name="LoginPage_ActivityIndicator" IsVisible="{Binding ActivityIndicatorVisable}" Margin="0,20,0,10"
+                                     Orientation="Horizontal" HorizontalOptions="CenterAndExpand" >
+                                <Label Text="Login in progress . . ." TextColor="#004357" FontAttributes="Bold" FontSize="Small"/>
+                                <Image Source="Waiting.gif" IsAnimationPlaying="True" WidthRequest="25"/>
+                            </StackLayout>
+
+                        </StackLayout>
+
+
+                    </StackLayout>
+
+                </Frame>
+            </StackLayout>
+            <StackLayout  HorizontalOptions="Center" BackgroundColor="Transparent" WidthRequest="155" VerticalOptions="Start" Margin="0,20,0,0">
+                <Frame Visual="Default" HeightRequest="120" WidthRequest="130" BackgroundColor="Transparent" Padding="0" Margin="0" CornerRadius="30">
+                    <Image Source="SR_logo.png" Margin="0,0,0,0" Aspect="Fill" />
+                </Frame>
+            </StackLayout>
+            
+
+        </Grid>
+    </StackLayout>
+</ContentPage>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Shell xmlns="http://xamarin.com/schemas/2014/forms" 
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       xmlns:views="clr-namespace:SRConnecting.Views"
+       xmlns:shellviews="clr-namespace:SRConnecting.Views.ShellViews"
+       Title="SRConnecting"
+       x:Class="SRConnecting.AppShell"
+       FlyoutBackgroundColor="{StaticResource PrimaryColor}"
+       BackgroundColor="#4C8CF2">
+
+
+    <Shell.Resources>
+        <!--DO NOT FORGET X:KEY NOT X:NAME-->
+        <Style x:Key="BaseStyle" TargetType="Element">
+            <Setter Property="Shell.BackgroundColor" Value="{StaticResource PrimaryColor}"/>
+            <Setter Property="Shell.ForegroundColor" Value="White"/>
+            <Setter Property="Shell.TitleColor" Value="White"/>
+            <Setter Property="Shell.UnselectedColor" Value="#95FFFFFF"/>
+        </Style>
+
+        <!--DO NOT FORGET X:KEY NOT X:NAME-->
+        <Style x:Key="SettingStyl" 
+               TargetType="Element" 
+               BasedOn="{StaticResource BaseStyle}">
+            <Setter Property="Shell.BackgroundColor" Value="{StaticResource SettingColor}"/>
+        </Style>
+
+
+    </Shell.Resources>
+
+
+
+
+    <Shell.FlyoutHeader>
+        <shellviews:ShellHeader/>
+    </Shell.FlyoutHeader>
+
+
+    <FlyoutItem Icon="recent.png" FlyoutDisplayOptions="AsSingleItem" Title="HOME">
+        <Tab Title="RECENT" Icon="recent.png" Style="{StaticResource BaseStyle}">
+            <ShellContent Title="RECENT"  ContentTemplate="{DataTemplate views:Recent}"/>
+        </Tab>
+        <Tab Title="CONTACTS" Icon="contacts.png" Style="{StaticResource SettingStyl}">
+            <ShellContent Title="CONTACTS" ContentTemplate="{DataTemplate views:Contacts}"/>
+        </Tab>
+    </FlyoutItem>
+
+    <FlyoutItem FlyoutDisplayOptions="AsMultipleItems">
+        <Tab Title="Settings" Icon="setting.png" Style="{StaticResource SettingStyl}">
+            <ShellContent Title="Settings" ContentTemplate="{DataTemplate views:Settings}"/>
+        </Tab>
+    </FlyoutItem>
+
+    <TabBar>
+        <ShellContent Route="LoginPage" ContentTemplate="{DataTemplate views:LoginView}" />
+    </TabBar>
+
+    <Shell.FlyoutFooter>
+        <shellviews:ShellFooter/>
+    </Shell.FlyoutFooter>
+
+
+
+
+
+
+</Shell>

@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SRConnecting.Views.SignupView"
+             xmlns:local="clr-namespace:SRConnecting.Common.EmbeddedImage"
+             xmlns:ViewModels="clr-namespace:SRConnecting.ViewModels"
+             BackgroundColor="#1D2247"
+             Visual="Material">
+
+    <!--BackgroundImageSource="{local:EmbeddedImages SRConnecting.images.BG.jpg}">-->
+
+    <ContentPage.BindingContext>
+        <ViewModels:SignUpViewModel/>
+    </ContentPage.BindingContext>
+
+    <StackLayout VerticalOptions="Center" Margin="10">
+        <Grid>
+            <StackLayout Padding="0" HorizontalOptions="FillAndExpand">
+                <Frame  BackgroundColor="White" HeightRequest="620" HasShadow="True" Padding="0" Margin="0" CornerRadius="30">
+                    <StackLayout >
+                            <StackLayout Margin="10">
+                                <Label Text="Sign Up" FontSize="Large" TextColor="{StaticResource PrimaryColor}" HorizontalOptions="CenterAndExpand" FontAttributes="Bold"/>
+                            </StackLayout>
+
+
+                            <StackLayout Padding="0" Margin="15,10">
+
+                            <Frame BorderColor="DarkGray" HeightRequest="60" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="30">
+                                <StackLayout Orientation="Horizontal">
+                                    <Frame  BorderColor="DarkGray" CornerRadius="30" Padding="0" Margin="5">
+                                        <Image Source="arrow.png" Aspect="AspectFill" Margin="0"/>
+                                    </Frame>
+
+                                    <Entry Text="{Binding FirstName}" BackgroundColor="Transparent" Placeholder="Firstname" TextColor="#004357" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"></Entry>
+
+                                    <!--<local:CustomEntry Placeholder="Email" TextColor="#004357" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>-->
+                                </StackLayout>
+                            </Frame>
+
+                            <Frame BorderColor="DarkGray" HeightRequest="60" Margin="0,15,0,0" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="30">
+                                <StackLayout Orientation="Horizontal">
+                                    <Frame BorderColor="DarkGray" CornerRadius="30" Padding="0" Margin="5">
+                                        <Image Source="arrow.png" Aspect="AspectFill" Margin="0"/>
+                                    </Frame>
+
+                                    <Entry Text="{Binding LastName}" BackgroundColor="Transparent" Placeholder="Lastname" TextColor="#004357" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
+
+                                    <!--<local:CustomEntry Placeholder="Password" IsPassword="True" TextColor="#004357" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>-->
+                                </StackLayout>
+                            </Frame>
+
+                            <Frame BorderColor="DarkGray" HeightRequest="60" Margin="0,15,0,0" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="30">
+                                <StackLayout Orientation="Horizontal">
+                                    <Frame BorderColor="DarkGray" CornerRadius="30" Padding="0" Margin="5">
+                                        <Image Source="email.png" Aspect="AspectFill" Margin="0"/>
+                                    </Frame>
+
+                                    <Entry Text="{Binding Email}" BackgroundColor="Transparent" Placeholder="E-mail" TextColor="#004357" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
+
+                                    <!--<local:CustomEntry Placeholder="Password" IsPassword="True" TextColor="#004357" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>-->
+                                </StackLayout>
+                            </Frame>
+
+
+                            <Frame BorderColor="DarkGray" HeightRequest="60" Margin="0,15,0,0" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="30">
+                                <StackLayout Orientation="Horizontal">
+                                    <Frame BorderColor="DarkGray" CornerRadius="30" Padding="0" Margin="5">
+                                        <Image Source="password.png" Aspect="AspectFill" Margin="0"/>
+                                    </Frame>
+
+                                    <Entry Text="{Binding Password}" BackgroundColor="Transparent" Placeholder="Password" IsPassword="True" TextColor="#004357" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
+
+                                    <!--<local:CustomEntry Placeholder="Password" IsPassword="True" TextColor="#004357" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>-->
+                                </StackLayout>
+                            </Frame>
+
+                            <Frame  BorderColor="DarkGray" HeightRequest="60" Margin="0,15,0,0" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="30">
+                                <StackLayout Orientation="Horizontal">
+                                    <Frame BorderColor="DarkGray" CornerRadius="30" Padding="0" Margin="5">
+                                        <Image Source="mobil.png" Aspect="AspectFill" Margin="0"/>
+                                    </Frame>
+
+                                    <Entry Text="{Binding Mobile}" BackgroundColor="Transparent" Placeholder="Mobile Number" TextColor="#004357" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
+
+                                    <!--<local:CustomEntry Placeholder="Password" IsPassword="True" TextColor="#004357" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>-->
+                                </StackLayout>
+                            </Frame>
+
+
+                            <Button Text="SIGN UP" BackgroundColor="#004357" Visual="Default" TextColor="White" CornerRadius="30" Command="{Binding  SignUpBTClickedCommand}" Margin="0,15,0,0"/>
+                            <Button Text="Cancel" BackgroundColor="#5C221C" Visual="Default" TextColor="White" CornerRadius="30" Clicked="CancelClicked"/>
+
+                            <StackLayout  IsVisible="{Binding ActivityIndicatorIsVisible}"
+                                          Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Margin="0,10,0,0">
+                                <Label Text="Registration in progress . . ." TextColor="#004357" FontAttributes="Bold" FontSize="Small"/>
+                                <Image Source="Waiting.gif" IsAnimationPlaying="True" WidthRequest="25"/>
+                            </StackLayout>
+
+                        </StackLayout>
+
+
+                    </StackLayout>
+
+                </Frame>
+            </StackLayout>
+        </Grid>
+    </StackLayout>
+
+</ContentPage>

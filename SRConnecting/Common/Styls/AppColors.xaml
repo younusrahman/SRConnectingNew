@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ResourceDictionary
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+    <Color x:Key="LightBlueBackground">#EDF1F9</Color>
+    <Color x:Key="InputText">#0D1F3C</Color>
+    <Color x:Key="PrimaryColor">#18606F</Color>
+    <Color x:Key="ErrorColor">#FF5252</Color>
+    <Color x:Key="CellBackground">#EDF1F9</Color>
+    <Color x:Key="LightGrayText">#B5BBC9</Color>
+    <Color x:Key="DarkGrayText">#485068</Color>
+    <Color x:Key="PositiveTrend">#75BF72</Color>
+    <Color x:Key="NegativeTrend">#DF5060</Color>
+    <Color x:Key="SettingColor">#FF8600</Color>
+    <Color x:Key="WithdrawnTab">#5D005D</Color>
+    <Color x:Key="DetailsText">#485068</Color>
+    <Color x:Key="Loginpage">#28292B</Color>
+</ResourceDictionary>

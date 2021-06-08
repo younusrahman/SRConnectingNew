@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SRConnecting.Views.AccountRecoveryViews"
+             xmlns:local="clr-namespace:SRConnecting.Common.EmbeddedImage" 
+             BackgroundColor="#1D2247">
+    <!--BackgroundImageSource="{local:EmbeddedImages SRConnecting.images.BG.jpg}"
+             BackgroundColor="Transparent">-->
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand" Margin="10">
+
+            <Grid>
+                <StackLayout Padding="0" HorizontalOptions="FillAndExpand">
+                    <Frame  BackgroundColor="White" HeightRequest="500" HasShadow="True" Padding="0" Margin="0" CornerRadius="30">
+
+                        <StackLayout>
+                            <StackLayout Margin="10">
+                                <Label Text="Reset Password" FontSize="Large" TextColor="{StaticResource PrimaryColor}" HorizontalOptions="CenterAndExpand" FontAttributes="Bold"/>
+                            </StackLayout>
+
+
+
+                            <!--här visar useremail chéck-->
+                            <Label x:Name="InvalidEmailError" IsVisible="false" Text="Invalid Email Address" HorizontalOptions="CenterAndExpand" TextColor="#530E0E" FontAttributes="Bold" FontSize="Small"/>
+
+
+                            <StackLayout Padding="0" Margin="15,20,15,0">
+
+                                <Frame BackgroundColor="Transparent" BorderColor="DarkGray" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="30">
+                                    <StackLayout Orientation="Horizontal">
+                                        <Frame BackgroundColor="SkyBlue" HeightRequest="40" WidthRequest="40" CornerRadius="30" Padding="0" Margin="5">
+                                            <Image Source="https://www.findool.com/images/avatars/avatar.png" Aspect="AspectFill" Margin="0"/>
+                                        </Frame>
+
+                                        <Entry x:Name="Entry_email" Placeholder="Email" TextColor="#004357" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"  ></Entry>
+
+                                        <!--<local:CustomEntry Placeholder="Email" TextColor="#004357" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>-->
+                                    </StackLayout>
+
+                                </Frame>
+
+
+                                <Frame BackgroundColor="Transparent" BorderColor="DarkGray" Margin="0,15,0,0" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="30">
+                                    <StackLayout Orientation="Horizontal">
+                                        <Frame BackgroundColor="SkyBlue" HeightRequest="40" WidthRequest="40" CornerRadius="30" Padding="0" Margin="5">
+                                            <Image Source="https://images.all-free-download.com/images/graphicthumb/lock_icon_6813906.jpg" Aspect="AspectFill" Margin="0"/>
+                                        </Frame>
+
+                                        <Entry x:Name="Entry_password" Placeholder="Password" IsPassword="True" TextColor="#004357" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
+
+                                        <!--<local:CustomEntry Placeholder="Password" IsPassword="True" TextColor="#004357" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>-->
+                                    </StackLayout>
+                                </Frame>
+
+
+                                <Button Text="Reset password" BackgroundColor="#004357" TextColor="White" CornerRadius="30" Command="{Binding ResetCommand}"/>
+                                <Button Text="Cancel" BackgroundColor="#5C221C" TextColor="White" CornerRadius="30" Clicked="CancelButtonClicked"/>
+                                <!--<StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                                <Image Source="register1.png"/>
+         
+                                <Button Text="Sign Up" TextColor="#004357" BackgroundColor="Transparent" FontAttributes="Bold" FontSize="Small" Command="{Binding SignUpCommand}"/>
+                            </StackLayout>-->
+
+
+
+
+                                <!--här visar Login_ActivityIndicator-->
+                                <StackLayout x:Name="Reset_ActivityIndicator" IsVisible="true" Margin="0,0,0,10"
+                                     Orientation="Horizontal" HorizontalOptions="CenterAndExpand" >
+                                    <Label Text="Reset in progress . . ." TextColor="#004357" FontAttributes="Bold" FontSize="Small"/>
+                                    <Image Source="Waiting.gif" IsAnimationPlaying="True" WidthRequest="25"/>
+                                </StackLayout>
+
+                            </StackLayout>
+
+
+                        </StackLayout>
+
+                    </Frame>
+                </StackLayout>
+
+
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
